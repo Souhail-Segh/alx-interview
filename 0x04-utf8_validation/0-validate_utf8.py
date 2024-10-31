@@ -4,10 +4,10 @@ from typing import List
 '''
 
 
-def validUTF8(data: List) -> bool:
+def validUTF8(data: List[int]) -> bool:
     '''Validate UTF8 characters list
     '''
-    def CountLeft_Ones(lbyte: int) -> int:
+    def CountLeft_Ones(lbyte):
         '''Count the number of first '1'
         '''
         count = 0
