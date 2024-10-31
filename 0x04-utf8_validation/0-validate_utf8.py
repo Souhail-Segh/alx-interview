@@ -3,6 +3,7 @@ from typing import List
 '''UTF-8 Validation Program
 '''
 
+
 def CountLeft_Ones(lbyte: int) -> int:
     '''Count the number of first '1'
     '''
@@ -12,6 +13,7 @@ def CountLeft_Ones(lbyte: int) -> int:
             count += 1
         else:
             return count
+    return count
 
 def validUTF8(data: List) -> bool:
     '''Validate UTF8 characters list
