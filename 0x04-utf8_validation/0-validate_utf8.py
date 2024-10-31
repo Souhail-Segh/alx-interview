@@ -17,10 +17,12 @@ def validUTF8(data):
                 break
         return count
 
-    if not data or type(data[i]) != int:
+    if not data or not isinstance(data, list):
         return False
     count = 0
     for d in data:
+        if type(d) != int:
+            return False
         if d > 255 or d < 0:
             return False
         if not count:
