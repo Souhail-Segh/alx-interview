@@ -18,6 +18,9 @@ def validUTF8(data):
                 break
         return count
 
+    if not data or type(data[i]) != int:
+        return False
+    
     count = 0
     for d in data:
         if not count:
