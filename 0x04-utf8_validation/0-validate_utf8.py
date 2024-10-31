@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-from typing import List
 '''UTF-8 Validation Program
 '''
 
 
-def validUTF8(data: List[int]) -> bool:
+def validUTF8(data):
     '''Validate UTF8 characters list
     '''
-    def CountLeft_Ones(lbyte: int) -> int:
+    def CountLeft_Ones(lbyte):
         '''Count the number of first '1'
         '''
         count = 0
