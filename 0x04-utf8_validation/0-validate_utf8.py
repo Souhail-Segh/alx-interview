@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from typing import List
 '''UTF-8 Validation Program
 '''
 
@@ -20,9 +19,10 @@ def validUTF8(data):
 
     if not data or type(data[i]) != int:
         return False
-    
     count = 0
     for d in data:
+        if d > 255 or d < 0:
+            return False
         if not count:
             count = CountLeft_Ones(d)
             if count == 0:
