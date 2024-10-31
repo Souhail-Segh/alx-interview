@@ -4,7 +4,7 @@ from typing import List
 '''
 
 
-def validUTF8(data: List[int]) -> bool:
+def validUTF8(data):
     '''Validate UTF8 characters list
     '''
     def CountLeft_Ones(lbyte):
