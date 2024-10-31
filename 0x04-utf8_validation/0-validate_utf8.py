@@ -4,20 +4,20 @@ from typing import List
 '''
 
 
-def CountLeft_Ones(lbyte: int) -> int:
-    '''Count the number of first '1'
-    '''
-    count = 0
-    for pos in range(7, -1, -1):
-        if ((lbyte >> pos) & 1):
-            count += 1
-        else:
-            return count
-    return count
-
 def validUTF8(data: List) -> bool:
     '''Validate UTF8 characters list
     '''
+    def CountLeft_Ones(lbyte: int) -> int:
+        '''Count the number of first '1'
+        '''
+        count = 0
+        for pos in range(7, -1, -1):
+            if ((1 << pos) & lbyte):
+                count += 1
+            else:
+                break
+        return count
+
     count = 0
     for d in data:
         if not count:
