@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-"""N Queens Module 
+"""N Queens Module
 """
 
 
@@ -13,14 +13,13 @@ def calculate_N_Queens(n):
     col = set()
     diagrUp = set()
     diagrDown = set()
-    results = []
-    chess = [[] * n]
+    chess = [[] for i in range(n)]
 
     def backtrack_queens(row):
         """Recursion function.
         """
         if row == n:
-            results.append(chess)
+            print(chess)
             return
 
         for c in range(n):
@@ -39,12 +38,12 @@ def calculate_N_Queens(n):
             diagrUp.remove(row + c)
             diagrDown.remove(row - c)
             chess[row] = []
-            
+
     backtrack_queens(0)
-    return (results)
+
 
 if __name__ == '__main__':
-    """Check if the required arguments 
+    """Check if the required arguments
     are provided correctly and calculate.
     """
     if len(sys.argv) != 2:
@@ -61,4 +60,4 @@ if __name__ == '__main__':
         print("N must be at least 4")
         sys.exit(1)
 
-    print(calculate_N_Queens(n))
+    calculate_N_Queens(n)
