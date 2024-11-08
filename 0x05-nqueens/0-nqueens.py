@@ -21,7 +21,27 @@ def calculate_N_Queens(n):
         """
         if row == n:
             results.append(chess)
+            return
+
+        for c in range(n):
+            if c in col or (row + c) in diagrUp or \
+               (row - c) in diagrDown:
+                continue
+
+            col.add(c)
+            diagrUp.add(row + c)
+            diagrDown.add(row - c)
+            chess[row] = [row, c]
+
+            backtrack_queens(row + 1)
+
+            col.remove(c)
+            diagrUp.remove(row + c)
+            diagrDown.remove(row - c)
+            chess[row] = []
             
+    backtrack_queens(0)
+    return (results)
 
 if __name__ == '__main__':
     """Check if the required arguments 
@@ -30,9 +50,10 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
-        
-    n = sys.argv[1]
-    if not isinstance(n, int):
+
+    try:
+        n = int(sys.argv[1])
+    except ValueError:
         print("N must be a number")
         sys.exit(1)
 
@@ -40,4 +61,4 @@ if __name__ == '__main__':
         print("N must be at least 4")
         sys.exit(1)
 
-    calculate_N_Queens(n)
+    print(calculate_N_Queens(n))
